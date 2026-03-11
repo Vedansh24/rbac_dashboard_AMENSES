@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RBAC Dashboard (React + Vite + TypeScript)
 
 Role-Based Access Control (RBAC) demo app with **three portals**:
@@ -72,3 +73,6 @@ This is a static Vite app. Deploy to any static host (e.g. Vercel / Netlify):
 - **Build command**: `npm run build`
 - **Output directory**: `dist`
 - **Node version**: use an LTS version supported by your host
+=======
+# rbac_dashboard_AMENSES
+>>>>>>> e3d6678f96150cd2838807365da8e6c23cfa18d7
