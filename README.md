@@ -1,78 +1,141 @@
-<<<<<<< HEAD
-# RBAC Dashboard (React + Vite + TypeScript)
+# RBAC Dashboard — React + Vite + TypeScript
 
-Role-Based Access Control (RBAC) demo app with **three portals**:
+A **Role-Based Access Control (RBAC)** demo application with three separate portals:
 
-- **User Portal**: `/user/*`
-- **Vendor Portal**: `/vendor/*`
-- **Admin Portal**: `/admin/*`
+| Portal | Route Prefix | Roles Allowed |
+|--------|-------------|---------------|
+| User Portal | `/user/*` | USER, VENDOR, ADMIN |
+| Vendor Portal | `/vendor/*` | VENDOR, ADMIN |
+| Admin Portal | `/admin/*` | ADMIN only |
 
-Built with:
+---
 
-- React + Vite + TypeScript (strict)
-- Redux Toolkit (auth + session persistence)
-- shadcn/ui + Tailwind (theme via CSS variables)
-- Recharts (dashboard widgets)
+## Tech Stack
 
-## RBAC Rules
+- **React 18** + **Vite** + **TypeScript** (strict mode)
+- **Redux Toolkit** — auth slice, session persistence via `localStorage`
+- **shadcn/ui** + **Tailwind CSS** — theme via CSS variables
+- **Recharts** — interactive dashboard widgets
+- **React Router v6** — file-based routing with role guards
 
-- **USER**: can access User + Vendor portals
-- **VENDOR**: can access User + Vendor portals
-- **ADMIN**: can access User + Vendor + Admin portals (full access)
+---
 
-## Quick start
+## Setup Instructions
 
-1) Install dependencies
+### 1. Clone the repository
+
+```bash
+git clone <repo-url>
+cd rbac-dashboard
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-2) Configure environment
+### 3. Configure environment variables
 
-- Copy `.env.example` to `.env`
-- Update values as needed
+```bash
+cp .env.example .env
+```
 
-3) Run locally
+Edit `.env` as needed:
+
+```env
+VITE_APP_ENV=development
+VITE_API_URL=http://localhost:5000
+```
+
+### 4. Run the development server
 
 ```bash
 npm run dev
 ```
 
-## Auth pages
+App runs at `http://localhost:5173` by default.
 
-- User: `/user/login`, `/user/signup`
-- Vendor: `/vendor/login`, `/vendor/signup`
-- Admin: `/admin/login`, `/admin/signup`
+---
 
-User/Vendor auth pages include the required cross-links between portals.
+## Login Credentials (Demo)
 
-## Project structure (high level)
+Since there is no real backend, use any of the pre-configured test accounts:
 
-- `src/app/`: store + typed hooks
-- `src/features/auth/`: auth slice + auth UI
-- `src/routes/`: router + guards (ProtectedRoute / RoleGuard / PermissionGuard)
-- `src/layouts/`: portal layouts (topbar + optional sidebar)
-- `src/components/`: shadcn ui + shared widgets
-- `src/data/`: dashboard data (no static data inside UI components)
-- `src/theme/`: design tokens (colors/spacing/typography/radius)
-- `src/services/`: persistence/services (localStorage auth service)
-- `src/types/`: global type definitions
+| Email | Password | Role |
+|-------|----------|------|
+| `user@example.com` | `password` | USER |
+| `vendor@example.com` | `password` | VENDOR |
+| `admin@example.com` | `password` | ADMIN |
 
-## Scripts
+---
 
-- `npm run dev`: start dev server
-- `npm run build`: typecheck + production build
-- `npm run lint`: eslint
-- `npm run preview`: preview production build
+## RBAC Permission Rules
+
+- **USER** — access User Portal only
+- **VENDOR** — access User + Vendor portals
+- **ADMIN** — full access to all portals (User + Vendor + Admin)
+
+---
+
+## Project Structure
+
+```
+src/
+├── app/            # Redux store setup + typed hooks
+├── components/
+│   ├── ui/         # shadcn/ui base components
+│   └── shared/     # Reusable widgets: StatsCard, DashboardWidget, ChartWidget
+├── data/           # Static data files (NO static data inside UI components)
+│   ├── dashboard.data.ts
+│   ├── adminData.ts
+│   └── vendorData.ts
+├── features/
+│   └── auth/       # Auth slice, login/signup components
+├── hooks/          # Reusable custom hooks
+│   ├── useAuth.ts
+│   ├── useRole.ts
+│   ├── usePermissions.ts
+│   └── useDashboardData.ts
+├── layouts/        # Portal layouts (topbar + sidebar)
+├── pages/
+│   ├── admin/      # AdminDashboard
+│   ├── user/       # UserDashboard
+│   └── vendor/     # VendorDashboard
+├── routes/         # Router + guards (ProtectedRoute, RoleGuard, PermissionGuard)
+├── services/       # localStorage auth persistence
+├── theme/          # Design tokens (colors, spacing, typography, radius)
+├── types/          # Global TypeScript type definitions
+└── utils/          # Permission helpers and utilities
+```
+
+---
+
+## Auth Pages
+
+- `/user/login` — `/user/signup`
+- `/vendor/login` — `/vendor/signup`
+- `/admin/login` — `/admin/signup`
+
+User and Vendor auth pages include cross-portal links.
+
+---
+
+## Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | TypeScript check + production build |
+| `npm run lint` | Run ESLint |
+| `npm run preview` | Preview production build |
+
+---
 
 ## Deployment
 
-This is a static Vite app. Deploy to any static host (e.g. Vercel / Netlify):
+This is a fully static Vite app — deploy to any static host:
 
-- **Build command**: `npm run build`
-- **Output directory**: `dist`
-- **Node version**: use an LTS version supported by your host
-=======
-# rbac_dashboard_AMENSES
->>>>>>> e3d6678f96150cd2838807365da8e6c23cfa18d7
+- **Vercel / Netlify**: Build command `npm run build`, output directory `dist`
+- **GitHub Pages**: use the `gh-pages` package or a GitHub Actions workflow
+- **Node version**: Use a current LTS version (18+)
