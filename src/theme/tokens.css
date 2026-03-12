@@ -1,0 +1,77 @@
+@layer utilities {
+  /* === Color tokens (semantic) === */
+  .primary-bg { @apply bg-primary; }
+  .primary-text { @apply text-primary-foreground; }
+  .primary-border { @apply border-primary; }
+
+  .secondary-bg { @apply bg-secondary; }
+  .secondary-text { @apply text-secondary-foreground; }
+  .secondary-border { @apply border-secondary; }
+
+  .accent-bg { @apply bg-accent; }
+  .accent-text { @apply text-accent-foreground; }
+  .accent-border { @apply border-accent; }
+
+  .neutral-bg { @apply bg-background; }
+  .neutral-text { @apply text-foreground; }
+  .neutral-border { @apply border-border; }
+
+  .info-bg { @apply bg-primary/10; }
+  .info-text { @apply text-primary; }
+  .info-border { @apply border-primary/20; }
+
+  .warning-bg { @apply bg-accent/60; }
+  .warning-text { @apply text-accent-foreground; }
+  .warning-border { @apply border-accent; }
+
+  .error-bg { @apply bg-destructive; }
+  .error-text { @apply text-destructive-foreground; }
+  .error-border { @apply border-destructive; }
+
+  /* === Spacing tokens === */
+  .spacing-xs { @apply p-1; }  /* 0.25rem */
+  .spacing-sm { @apply p-2; }  /* 0.5rem */
+  .spacing-md { @apply p-4; }  /* 1rem */
+  .spacing-lg { @apply p-6; }  /* 1.5rem */
+  .spacing-xl { @apply p-8; }  /* 2rem */
+
+  .spacing-x-xs { @apply px-1; }
+  .spacing-x-sm { @apply px-2; }
+  .spacing-x-md { @apply px-4; }
+  .spacing-x-lg { @apply px-6; }
+  .spacing-x-xl { @apply px-8; }
+
+  .spacing-y-xs { @apply py-1; }
+  .spacing-y-sm { @apply py-2; }
+  .spacing-y-md { @apply py-4; }
+  .spacing-y-lg { @apply py-6; }
+  .spacing-y-xl { @apply py-8; }
+
+  .gap-xs { @apply gap-1; }
+  .gap-sm { @apply gap-2; }
+  .gap-md { @apply gap-4; }
+  .gap-lg { @apply gap-6; }
+  .gap-xl { @apply gap-8; }
+
+  /* === Typography tokens === */
+  .font-size-xs { @apply text-xs; }
+  .font-size-sm { @apply text-sm; }
+  .font-size-md { @apply text-base; }
+  .font-size-lg { @apply text-lg; }
+  .font-size-xl { @apply text-xl; }
+
+  .font-weight-normal { @apply font-normal; }
+  .font-weight-medium { @apply font-medium; }
+  .font-weight-semibold { @apply font-semibold; }
+  .font-weight-bold { @apply font-bold; }
+
+  .line-height-tight { @apply leading-tight; }
+  .line-height-normal { @apply leading-normal; }
+  .line-height-relaxed { @apply leading-relaxed; }
+
+  /* === Radius tokens (allowed px only via CSS variable calc) === */
+  .radius-sm { border-radius: calc(var(--radius) - 4px); }
+  .radius-md { border-radius: calc(var(--radius) - 2px); }
+  .radius-lg { border-radius: var(--radius); }
+}
+

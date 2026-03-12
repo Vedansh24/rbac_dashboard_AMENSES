@@ -13,12 +13,12 @@ export function StatsCard({ title, value, helperText, icon }: StatsCardProps) {
   return (
     <Card>
       <CardHeader className="flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+        <CardTitle className="font-size-sm font-weight-medium text-muted-foreground">{title}</CardTitle>
         {icon ? <div className="text-muted-foreground">{icon}</div> : null}
       </CardHeader>
       <CardContent className="space-y-1">
-        <div className="text-2xl font-semibold tracking-tight">{value}</div>
-        {helperText ? <p className="text-xs text-muted-foreground">{helperText}</p> : null}
+        <div className="text-2xl font-weight-semibold tracking-tight">{value}</div>
+        {helperText ? <p className="font-size-xs text-muted-foreground">{helperText}</p> : null}
       </CardContent>
     </Card>
   )

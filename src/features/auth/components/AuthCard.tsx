@@ -85,29 +85,29 @@ export function AuthCard({ portal, mode }: AuthCardProps) {
   }
 
   return (
-    <div className="min-h-dvh flex flex-col bg-background">
-      <header className="border-b bg-background/80 backdrop-blur">
+    <div className="min-h-dvh flex flex-col neutral-bg">
+      <header className="border-b neutral-bg/80 backdrop-blur">
         {/* Constrain header to same width as auth card so logo + title align with form */}
-        <div className="grid grid-cols-3 items-center px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground text-lg font-semibold">
+        <div className="grid grid-cols-3 items-center spacing-x-lg spacing-y-md">
+          <div className="flex items-center gap-2">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full primary-bg primary-text font-size-lg font-weight-semibold">
               V
             </div>
-            <span className="text-sm font-semibold tracking-wide text-foreground">
+            <span className="font-size-sm font-weight-semibold tracking-wide neutral-text">
               VEDANSH
             </span>
           </div>
-          <h1 className="flex-1 text-center text-lg md:text-xl font-semibold tracking-wide text-muted-foreground">
+          <h1 className="flex-1 text-center font-size-lg md:font-size-xl font-weight-semibold tracking-wide text-muted-foreground">
             VEDANSH&apos;S DASHBOARD
           </h1>
           <div className="h-10 w-10" aria-hidden="true" />
         </div>
       </header>
 
-      <div className="flex flex-1 items-center justify-center p-6">
+      <div className="flex flex-1 items-center justify-center spacing-lg">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-xl">{title}</CardTitle>
+          <CardTitle className="font-size-xl">{title}</CardTitle>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
@@ -153,7 +153,7 @@ export function AuthCard({ portal, mode }: AuthCardProps) {
 
             {error ? <p className="text-sm text-destructive">{error}</p> : null}
 
-            <p className="text-sm text-muted-foreground">
+            <p className="font-size-sm text-muted-foreground">
               {modeSwitch.text}{" "}
               <Link className="text-primary underline underline-offset-4" to={modeSwitch.to}>
                 {modeSwitch.cta} →
@@ -161,7 +161,7 @@ export function AuthCard({ portal, mode }: AuthCardProps) {
             </p>
 
             {cross ? (
-              <p className="text-sm text-muted-foreground">
+              <p className="font-size-sm text-muted-foreground">
                 {cross.text}{" "}
                 <Link className="text-primary underline underline-offset-4" to={cross.to}>
                   Click →
@@ -175,7 +175,7 @@ export function AuthCard({ portal, mode }: AuthCardProps) {
             </Button>
 
             {portal !== "admin" && mode === "login" ? (
-              <p className="w-full text-center text-xs text-muted-foreground">
+              <p className="w-full text-center font-size-xs text-muted-foreground">
                 Are you an admin?{" "}
                 <Link className="text-primary underline underline-offset-4" to="/admin/signup">
                   Sign up as Admin →
@@ -187,8 +187,8 @@ export function AuthCard({ portal, mode }: AuthCardProps) {
       </Card>
       </div>
 
-      <footer className="border-t bg-background py-4">
-  <div className="container mx-auto flex flex-col items-center justify-between gap-2 text-sm text-muted-foreground md:flex-row">
+      <footer className="border-t neutral-bg spacing-y-sm">
+    <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-2 font-size-sm text-muted-foreground md:flex-row spacing-x-lg">
     
     <p>© 2026 Vedansh. All rights reserved. #AMENSES_INNVOTATION
     </p>

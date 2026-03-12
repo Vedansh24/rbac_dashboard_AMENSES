@@ -25,10 +25,10 @@ function TopBar({ portalName }: { portalName: string }) {
 
   return (
     <header className="sticky top-0 z-10 border-b bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto w-full max-w-6xl px-6 py-4 flex items-center gap-4 justify-between">
+      <div className="mx-auto w-full max-w-6xl spacing-x-lg spacing-y-md flex items-center gap-4 justify-between">
         <div className="min-w-0 space-y-0.5">
-          <p className="text-xs uppercase tracking-wide text-muted-foreground">{portalName}</p>
-          <p className="truncate font-medium">
+          <p className="font-size-xs uppercase tracking-wide text-muted-foreground">{portalName}</p>
+          <p className="truncate font-weight-medium">
             {user?.name ?? "—"} <span className="text-muted-foreground">·</span>{" "}
             <span className="text-muted-foreground">{role ?? "—"}</span>
           </p>
@@ -88,7 +88,7 @@ export function PortalLayout({ portalName, sidebarPosition, nav }: PortalLayoutP
   return (
     <div className="min-h-dvh">
       <TopBar portalName={portalName} />
-      <main className="mx-auto w-full max-w-6xl p-6">
+      <main className="mx-auto w-full max-w-6xl spacing-lg">
         <div
           className={[
             "flex flex-col gap-6",
@@ -98,7 +98,7 @@ export function PortalLayout({ portalName, sidebarPosition, nav }: PortalLayoutP
         >
           {sidebar}
           <section className="min-w-0 flex-1">
-            <div className="rounded-xl border bg-card p-6">
+            <div className="rounded-xl border bg-card spacing-lg">
               <Outlet />
             </div>
           </section>
