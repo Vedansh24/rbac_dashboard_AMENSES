@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from "@/app/hooks"
 import { clearAuthError, login, signup } from "@/features/auth/authSlice"
 import type { AuthMode, Portal } from "../auth.types"
 import { portalRoleMap } from "../auth.types"
-import { Users, BarChart3, Lock, ArrowRight, Sparkles, Shield } from "lucide-react"
+import { Users, BarChart3, ArrowRight, Sparkles, Shield } from "lucide-react"
 
 interface AuthCardProps {
   portal: Portal
@@ -24,7 +24,7 @@ const portalLabel: Record<Portal, string> = {
 }
 
 const portalConfig: Record<Portal, {
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
   gradient: string
   description: string
   features: string[]
@@ -32,20 +32,20 @@ const portalConfig: Record<Portal, {
   user: {
     icon: Users,
     gradient: "from-blue-500 to-cyan-500",
-    description: "Access your personal dashboard and analytics",
-    features: ["Personal Analytics", "Performance Metrics", "Real-time Data"]
+    description: "Access your personal dashboard and manage your profile",
+    features: ["Personal Dashboard", "Activity Tracking", "Profile Management"]
   },
   vendor: {
     icon: BarChart3,
     gradient: "from-purple-500 to-pink-500",
-    description: "Manage your business and track performance",
-    features: ["Business Analytics", "Revenue Tracking", "Customer Insights"]
+    description: "Manage your business and track performance metrics",
+    features: ["Business Analytics", "Order Management", "Revenue Tracking"]
   },
   admin: {
-    icon: Lock,
+    icon: Shield,
     gradient: "from-red-500 to-orange-500",
-    description: "Complete system administration and control",
-    features: ["System Control", "User Management", "Security Monitoring"]
+    description: "System administration and user management",
+    features: ["User Management", "System Monitoring", "Security Controls"]
   }
 }
 

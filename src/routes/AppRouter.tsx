@@ -11,12 +11,15 @@ import VendorLoginPage from "@/features/auth/pages/VendorLoginPage"
 import VendorSignupPage from "@/features/auth/pages/VendorSignupPage"
 
 import AdminDashboard from "../pages/admin/AdminDashboard"
+import UsersManagement from "../pages/admin/UsersManagement"
+import VendorsManagement from "../pages/admin/VendorsManagement"
 import VendorDashboard from "../pages/vendor/VendorDashboard"
 import UserDashboard from "../pages/user/UserDashboard"
 
 import ProtectedRoute from "./ProtectedRoute"
 import DashboardRedirect from "./DashboardRedirect"
 import { PortalLayout } from "@/layouts/PortalLayout"
+import { BarChart3, Home } from "lucide-react"
 
 function AppRouter() {
   return (
@@ -45,7 +48,7 @@ function AppRouter() {
               portalName="User Portal"
               sidebarPosition="none"
               nav={[
-                { label: "Home", to: "/user/home" },
+                { label: "Home", to: "/user/home", icon: Home },
               ]}
             />
           </ProtectedRoute>
@@ -64,7 +67,9 @@ function AppRouter() {
             <PortalLayout
               portalName="Vendor Portal"
               sidebarPosition="right"
-              nav={[]}
+              nav={[
+                { label: "Dashboard", to: "/vendor/dashboard", icon: BarChart3 },
+              ]}
             />
           </ProtectedRoute>
         }
@@ -82,16 +87,14 @@ function AppRouter() {
             <PortalLayout
               portalName="Admin Portal"
               sidebarPosition="left"
-              nav={[
-                { label: "Dashboard", to: "/admin/dashboard" },
-                { label: "Vendor Dashboard", to: "/vendor/dashboard" },
-                { label: "User Home", to: "/user/home" },
-              ]}
+              nav={[]}
             />
           </ProtectedRoute>
         }
       >
         <Route path="dashboard" element={<AdminDashboard />} />
+        <Route path="users" element={<UsersManagement />} />
+        <Route path="vendors" element={<VendorsManagement />} />
       </Route>
 
       <Route path="/unauthorized" element={<Unauthorized />} />
