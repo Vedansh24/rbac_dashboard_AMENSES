@@ -1,13 +1,16 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { useAppDispatch, useAppSelector } from "@/app/hooks"
 import { logout } from "@/features/auth/authSlice"
-import { Shield, LogOut, Sun } from "lucide-react"
+import { Sidebar } from "./Sidebar"
+import { Shield, LogOut, Sun, Menu } from "lucide-react"
 
 export function DashboardHeader() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const { user, role } = useAppSelector((s) => s.auth)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const handleLogout = () => {
     dispatch(logout())
@@ -46,6 +49,16 @@ export function DashboardHeader() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
+          {/* Menu Button */}
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => setIsSidebarOpen(true)}
+            className="w-9 px-0"
+          >
+            <Menu className="h-4 w-4" />
+          </Button>
+          
           {/* Theme Toggle - Placeholder for future implementation */}
           <Button variant="ghost" size="sm" className="w-9 px-0">
             <Sun className="h-4 w-4" />
@@ -63,6 +76,12 @@ export function DashboardHeader() {
           </Button>
         </div>
       </div>
+      
+      {/* Sidebar */}
+      <Sidebar 
+        isOpen={isSidebarOpen} 
+        onClose={() => setIsSidebarOpen(false)} 
+      />
     </header>
   )
 }
