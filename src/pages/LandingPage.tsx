@@ -279,7 +279,7 @@ export default function LandingPage() {
               </a>
             </div>
             <p className="text-sm text-muted-foreground">
-              Built with ❤️ using React, TypeScript, and modern web standards
+              Built with using React, TypeScript, and modern web standards
             </p>
           </div>
         </div>
