@@ -14,6 +14,10 @@ export function DashboardHeader() {
     navigate("/", { replace: true })
   }
 
+  const handleLogoClick = () => {
+    navigate("/", { replace: true })
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
       {/* Gradient accent line at top */}
@@ -21,7 +25,10 @@ export function DashboardHeader() {
 
       <div className="mx-auto w-full max-w-7xl flex items-center justify-between px-6 py-3 gap-4">
         {/* Brand */}
-        <div className="flex items-center gap-3 min-w-0">
+        <button 
+          onClick={handleLogoClick}
+          className="flex items-center gap-3 min-w-0 hover:opacity-80 transition-opacity cursor-pointer border-0 bg-transparent p-0"
+        >
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent shadow-md">
             <Shield className="h-4 w-4 text-white" />
           </div>
@@ -35,7 +42,7 @@ export function DashboardHeader() {
               <span className="text-muted-foreground font-normal">{role ?? "—"}</span>
             </p>
           </div>
-        </div>
+        </button>
 
         {/* Actions */}
         <div className="flex items-center gap-2">
