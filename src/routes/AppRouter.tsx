@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 
 import Unauthorized from "../pages/Unauthorized"
+import LandingPage from "../pages/LandingPage"
 
 import AdminLoginPage from "@/features/auth/pages/AdminLoginPage"
 import AdminSignupPage from "@/features/auth/pages/AdminSignupPage"
@@ -20,7 +21,7 @@ import { PortalLayout } from "@/layouts/PortalLayout"
 function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/user/login" replace />} />
+      <Route path="/" element={<LandingPage />} />
 
       <Route path="/user/login" element={<UserLoginPage />} />
       <Route path="/user/signup" element={<UserSignupPage />} />
