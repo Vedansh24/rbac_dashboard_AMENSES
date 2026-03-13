@@ -16,9 +16,9 @@ interface ProtectedRouteProps {
 function ProtectedRoute({ children, allowedRoles, requiredPermissions }: ProtectedRouteProps) {
   const { isAuthenticated, role } = useAppSelector((state) => state.auth)
 
-  // Not logged in → redirect to home
+  // Not logged in → redirect to landing page
   if (!isAuthenticated) {
-    return <Navigate to="/user/login" replace />
+    return <Navigate to="/" replace />
   }
 
   const withRole = (
